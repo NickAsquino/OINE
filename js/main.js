@@ -37,12 +37,29 @@ function iniciarMapa() {
     17: { tag: "Inovacao", name: "Bloco J", desc: "Centro de Projetos Multidisciplinares e Visitacao." },
   };
 
-  let scale = 0.7;
-  let tx = -60;
-  let ty = -40;
+  let scale = 0.37;
+  let tx = -25;
+  let ty = -20;
   let isDragging = false;
   let lastX = 0;
   let lastY = 0;
+
+  let tapCount = 0;
+  let tapTimer = null;
+
+  document.querySelector('.logo-circle').addEventListener('click', () => {
+    tapCount++;
+    clearTimeout(tapTimer);
+
+    if (tapCount >= 5) {
+      tapCount = 0;
+      toggleGrafoDebug();
+      return;
+    }
+
+    // Reseta se demorar mais de 1.5s entre toques
+    tapTimer = setTimeout(() => tapCount = 0, 1500);
+  });
 
   function applyTransform() {
     svg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
@@ -135,14 +152,67 @@ function iniciarMapa() {
   }
 
   document.getElementById('searchInput').addEventListener('input', function() {
-    const q = this.value.toLowerCase();
+    const q = this.value.trim().toLowerCase();
+    const hasQuery = q.length > 0;
+
+    svg.classList.toggle('search-active', hasQuery);
 
     document.querySelectorAll('.building').forEach(el => {
       const d = blockData[el.dataset.id];
       if (!d) return;
 
       const searchable = `${d.name} ${d.desc} ${d.tag}`.toLowerCase();
-      el.style.opacity = !q || searchable.includes(q) ? '1' : '0.2';
+      const isMatch = hasQuery && searchable.includes(q);
+
+      el.classList.toggle('search-match', isMatch);
+      el.classList.toggle('search-dim', hasQuery && !isMatch);
     });
   });
+
+  function toggleGrafoDebug() {
+    // Se já existe, remove
+    const existing = document.getElementById('debug-graph');
+    if (existing) { existing.remove(); return; }
+
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.id = 'debug-graph';
+
+    // Desenha arestas
+    GRAPH.edges.forEach(([a, b]) => {
+      const na = GRAPH.nodes[a], nb = GRAPH.nodes[b];
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', na.x); line.setAttribute('y1', na.y);
+      line.setAttribute('x2', nb.x); line.setAttribute('y2', nb.y);
+      line.setAttribute('stroke', '#FF6B00');
+      line.setAttribute('stroke-width', '3');
+      line.setAttribute('stroke-dasharray', '6,4');
+      line.setAttribute('opacity', '0.7');
+      g.appendChild(line);
+    });
+
+    // Desenha nós
+    Object.entries(GRAPH.nodes).forEach(([id, node]) => {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', node.x);
+      circle.setAttribute('cy', node.y);
+      circle.setAttribute('r', node.label ? '8' : '5');
+      circle.setAttribute('fill', node.label ? '#003B71' : '#90CAF9');
+      circle.setAttribute('stroke', 'white');
+      circle.setAttribute('stroke-width', '2');
+      g.appendChild(circle);
+
+      if (node.label) {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', node.x + 10);
+        text.setAttribute('y', node.y + 4);
+        text.setAttribute('font-size', '10');
+        text.setAttribute('fill', '#003B71');
+        text.setAttribute('font-weight', '700');
+        text.textContent = node.label;
+        g.appendChild(text);
+      }
+    });
+
+    svg.appendChild(g);
+  }
 }
