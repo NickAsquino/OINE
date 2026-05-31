@@ -18,23 +18,23 @@ function iniciarMapa() {
   const wrap = document.getElementById('mapWrap');
 
   const blockData = {
-    1: { tag: "Seguranca", name: "Guarita", desc: "Entrada principal do campus CCT. Ponto de partida para todos os trajetos." },
-    2: { tag: "Administracao", name: "Bloco A", desc: "Recepcao, Secretaria de Graduacao e NAE - Nucleo de Apoio ao Estudante." },
-    3: { tag: "Ensino", name: "Bloco B", desc: "Laboratorios e Salas de Aula. Um dos maiores blocos do campus." },
-    4: { tag: "Pesquisa", name: "Bloco D", desc: "Laboratorios de pesquisa e ensino." },
-    5: { tag: "Engenharia", name: "Bloco E", desc: "Engenharia Eletrica e Auditorio central do bloco." },
-    6: { tag: "Ensino", name: "Bloco K", desc: "Salas de aula para diversas turmas e cursos." },
-    7: { tag: "Computacao", name: "Bloco F", desc: "Ciencia da Computacao, TADS e Auditorio. Sede dos cursos de TI." },
-    8: { tag: "Engenharia", name: "Bloco G", desc: "Engenharia Mecanica e Oficinas. Laboratorios de manufatura." },
-    9: { tag: "Licenciaturas", name: "Bloco C", desc: "Licenciatura em Fisica, Matematica e Quimica." },
-    10: { tag: "Cultura", name: "Antiga Biblioteca", desc: "Antiga Biblioteca Universitaria do campus." },
-    11: { tag: "Cultura", name: "Bloco I", desc: "Biblioteca atual, Auditorio e Salas de Aula." },
-    12: { tag: "Engenharia", name: "Bloco H", desc: "Laboratorios e Salas de Aula para Engenharia Civil." },
-    13: { tag: "Servicos", name: "Bloco de Apoio", desc: "Prefeitura de Campus, Almoxarifado e Copa dos funcionarios." },
-    14: { tag: "Esporte & Saude", name: "Ginasio", desc: "Academia e Espaco da Saude para a comunidade academica." },
-    15: { tag: "Convivencia", name: "Centro de Convivencia", desc: "Restaurante Universitario (RU), Centros Academicos e SOE." },
-    16: { tag: "Engenharia", name: "Bloco L", desc: "Engenharia de Producao e Secretaria de Engenharia Civil." },
-    17: { tag: "Inovacao", name: "Bloco J", desc: "Centro de Projetos Multidisciplinares e Visitacao." },
+    1:  { tag: "Seguranca",       name: "Guarita",               desc: "Entrada principal...",   nodes: ["guarita"] },
+    2:  { tag: "Administracao",   name: "Bloco A",               desc: "Recepcao...",            nodes: ["blocoA_in"] },
+    3:  { tag: "Ensino",          name: "Bloco B",               desc: "Laboratorios...",        nodes: ["blocoB_in"] },
+    4:  { tag: "Pesquisa",        name: "Bloco D",               desc: "Laboratorios...",        nodes: ["blocoD_in"] },
+    5:  { tag: "Engenharia",      name: "Bloco E",               desc: "Engenharia Eletrica...", nodes: ["blocoE1_in", "blocoE2_in"] },
+    6:  { tag: "Ensino",          name: "Bloco K",               desc: "Salas de aula...",       nodes: ["blocoK1_in", "blocoK2_in"] },
+    7:  { tag: "Computacao",      name: "Bloco F",               desc: "Ciencia da Computacao...",nodes: ["blocoF1_in", "blocoF2_in", "blocoF3_in"] },
+    8:  { tag: "Engenharia",      name: "Bloco G",               desc: "Engenharia Mecanica...", nodes: ["blocoG_in"] },
+    9:  { tag: "Licenciaturas",   name: "Bloco C",               desc: "Licenciatura...",        nodes: ["blocoC_in"] },
+    10: { tag: "Cultura",         name: "Antiga Biblioteca",     desc: "Antiga Biblioteca...",   nodes: ["antiga_biblioteca_in"] },
+    11: { tag: "Cultura",         name: "Bloco I",               desc: "Biblioteca atual...",    nodes: ["blocoI_in"] },
+    12: { tag: "Engenharia",      name: "Bloco H",               desc: "Laboratorios...",        nodes: ["blocoH_in"] },
+    13: { tag: "Servicos",        name: "Bloco de Apoio",        desc: "Prefeitura...",          nodes: ["bloco_de_apoio_in"] },
+    14: { tag: "Esporte & Saude", name: "Ginasio",               desc: "Academia...",            nodes: ["ginasio1_in", "ginasio2_in"] },
+    15: { tag: "Convivencia",     name: "Centro de Convivencia", desc: "Restaurante...",         nodes: ["convivencia_in"] },
+    16: { tag: "Engenharia",      name: "Bloco L",               desc: "Engenharia de Producao...",nodes: ["blocoL_in"] },
+    17: { tag: "Inovacao",        name: "Bloco J",               desc: "Centro de Projetos...",  nodes: ["blocoJ_in"] },
   };
 
   let scale = 0.37;
@@ -51,7 +51,7 @@ function iniciarMapa() {
     tapCount++;
     clearTimeout(tapTimer);
 
-    if (tapCount >= 5) {
+    if (tapCount >= 0) {
       tapCount = 0;
       toggleGrafoDebug();
       return;
