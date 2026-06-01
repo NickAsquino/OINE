@@ -36,12 +36,26 @@
     <section class="info-panel" id="infoPanel">
       <div class="panel-handle"></div>
       <button class="panel-close" id="panelClose" aria-label="Fechar painel">x</button>
+      <div class="carrossel" id="carrossel">
+        <div class="carrossel-track" id="carrosselTrack"></div>
+        <div class="carrossel-dots" id="carrosselDots"></div>
+      </div>
       <div class="panel-tag" id="panelTag">Bloco</div>
       <div class="panel-name" id="panelName">-</div>
       <div class="panel-desc" id="panelDesc">-</div>
       <button class="panel-btn">Traçar rota até aqui</button>
     </section>
   </main>
+
+  <!--
+  <div class="image-viewer" id="imageViewer" aria-hidden="true">
+    <button class="image-viewer-close" id="imageViewerClose" aria-label="Fechar imagem">x</button>
+    <button class="image-viewer-nav image-viewer-prev" id="imageViewerPrev" aria-label="Imagem anterior">&lt;</button>
+    <img id="imageViewerImg" src="" alt="Foto ampliada">
+    <button class="image-viewer-nav image-viewer-next" id="imageViewerNext" aria-label="Proxima imagem">&gt;</button>
+    <div class="image-viewer-dots" id="imageViewerDots"></div>
+  </div>
+  -->
 
   <nav class="bottom-nav" aria-label="Navegacao principal">
     <button class="nav-item active">
@@ -63,6 +77,7 @@
   </nav>
 
   <script src="js/graph.js"></script>
+  <script src="js/dijkstra.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -18,23 +18,23 @@ function iniciarMapa() {
   const wrap = document.getElementById('mapWrap');
 
   const blockData = {
-    1:  { tag: "Seguranca",       name: "Guarita",               desc: "Entrada principal...",   nodes: ["guarita"] },
-    2:  { tag: "Administracao",   name: "Bloco A",               desc: "Recepcao...",            nodes: ["blocoA_in"] },
-    3:  { tag: "Ensino",          name: "Bloco B",               desc: "Laboratorios...",        nodes: ["blocoB_in"] },
-    4:  { tag: "Pesquisa",        name: "Bloco D",               desc: "Laboratorios...",        nodes: ["blocoD_in"] },
-    5:  { tag: "Engenharia",      name: "Bloco E",               desc: "Engenharia Eletrica...", nodes: ["blocoE1_in", "blocoE2_in"] },
-    6:  { tag: "Ensino",          name: "Bloco K",               desc: "Salas de aula...",       nodes: ["blocoK1_in", "blocoK2_in"] },
-    7:  { tag: "Computacao",      name: "Bloco F",               desc: "Ciencia da Computacao...",nodes: ["blocoF1_in", "blocoF2_in", "blocoF3_in"] },
-    8:  { tag: "Engenharia",      name: "Bloco G",               desc: "Engenharia Mecanica...", nodes: ["blocoG_in"] },
-    9:  { tag: "Licenciaturas",   name: "Bloco C",               desc: "Licenciatura...",        nodes: ["blocoC_in"] },
-    10: { tag: "Cultura",         name: "Antiga Biblioteca",     desc: "Antiga Biblioteca...",   nodes: ["antiga_biblioteca_in"] },
-    11: { tag: "Cultura",         name: "Bloco I",               desc: "Biblioteca atual...",    nodes: ["blocoI_in"] },
-    12: { tag: "Engenharia",      name: "Bloco H",               desc: "Laboratorios...",        nodes: ["blocoH_in"] },
-    13: { tag: "Servicos",        name: "Bloco de Apoio",        desc: "Prefeitura...",          nodes: ["bloco_de_apoio_in"] },
-    14: { tag: "Esporte & Saude", name: "Ginasio",               desc: "Academia...",            nodes: ["ginasio1_in", "ginasio2_in"] },
-    15: { tag: "Convivencia",     name: "Centro de Convivencia", desc: "Restaurante...",         nodes: ["convivencia_in"] },
-    16: { tag: "Engenharia",      name: "Bloco L",               desc: "Engenharia de Producao...",nodes: ["blocoL_in"] },
-    17: { tag: "Inovacao",        name: "Bloco J",               desc: "Centro de Projetos...",  nodes: ["blocoJ_in"] },
+      1:  { tag: "Segurança",       name: "Guarita",                 desc: "Controle de acesso principal ao campus, vigilância e informações iniciais.", nodes: ["guarita"], imagens: [] },
+      2:  { tag: "Administração",   name: "Bloco A",                 desc: "Recepção principal do CCT, Direção Geral, Secretaria de Ensino de Graduação e NAE.", nodes: ["blocoA_in"], imagens: [] },
+      3:  { tag: "Ensino Prático",  name: "Bloco B",                 desc: "Laboratórios práticos focados em Física e Química, além de salas de aula.", nodes: ["blocoB_in"], imagens: [] },
+      4:  { tag: "Pesquisa",        name: "Bloco D",                 desc: "Laboratórios específicos, núcleos de pesquisa avançada e espaços técnicos.", nodes: ["blocoD_in"], imagens: [] },
+      5:  { tag: "Engenharia",      name: "Bloco E",                 desc: "Departamento de Engenharia Elétrica, auditório do bloco e laboratórios da área.", nodes: ["blocoE1_in", "blocoE2_in"], imagens: [] },
+      6:  { tag: "Ensino Teórico",  name: "Bloco K",                 desc: "Principal prédio de salas de aula teóricas do campus, distribuídas em três andares.", nodes: ["blocoK1_in", "blocoK2_in"], imagens: [] },
+      7:  { tag: "Computação",      name: "Bloco F",                 desc: "Departamento de Ciência da Computação e TADS. Possui laboratórios de informática e auditório.", nodes: ["blocoF1_in", "blocoF2_in", "blocoF3_in"], imagens: [] },
+      8:  { tag: "Engenharia",      name: "Bloco G",                 desc: "Departamento de Engenharia Mecânica, abrigando oficinas e maquinário pesado.", nodes: ["blocoG_in"], imagens: [] },
+      9:  { tag: "Licenciaturas",   name: "Bloco C",                 desc: "Departamentos e coordenações dos cursos de Licenciatura em Física, Matemática e Química.", nodes: ["blocoC_in"], imagens: [] },
+      10: { tag: "Administração",   name: "Antiga Biblioteca",       desc: "Prédio da antiga Biblioteca Universitária", nodes: ["antiga_biblioteca_in"], imagens: [] },
+      11: { tag: "Estudo & Cultura",name: "Bloco I",                 desc: "Nova Biblioteca Universitária, salas de estudo individuais/em grupo e um auditório.", nodes: ["blocoI_in"], imagens: [] },
+      12: { tag: "Engenharia",      name: "Bloco H",                 desc: "Laboratórios pesados e salas de aula dedicadas ao curso de Engenharia Civil.", nodes: ["blocoH_in"], imagens: [] },
+      13: { tag: "Serviços Gerais", name: "Bloco de Apoio",          desc: "Prefeitura do Campus, almoxarifado, copa e setor de manutenção.", nodes: ["bloco_de_apoio_in"], imagens: [] },
+      14: { tag: "Esporte e Saúde", name: "Ginásio",                 desc: "Ginásio de esportes, quadras poliesportivas, academia e Espaço da Saúde.", nodes: ["ginasio1_in", "ginasio2_in"], imagens: [] },
+      15: { tag: "Restaurante",     name: "Restaurante Universitário", desc: "Restaurante Universitário (RU), Centros Acadêmicos (C.A.s), xerox e área de convivência.", nodes: ["convivencia_in"], imagens: [] },
+      16: { tag: "Engenharia",      name: "Bloco L",                 desc: "Departamento de Engenharia de Produção e Sistemas, e Secretaria da Engenharia Civil.", nodes: ["blocoL_in"], imagens: [] },
+      17: { tag: "Inovação",        name: "Bloco J",                 desc: "Centro de Projetos e Inovação. Abriga as equipes de competição (Baja, Fórmula SAE) e oficinas.", nodes: ["blocoJ_in"], imagens: ["assets/blocos/blocoJ/blocoJ-img1.jpeg", "assets/blocos/blocoJ/blocoJ-img2.jpg", "assets/blocos/blocoJ/blocoJ-img3.jpg"] },
   };
 
   let scale = 0.37;
@@ -47,11 +47,15 @@ function iniciarMapa() {
   let tapCount = 0;
   let tapTimer = null;
 
+  let blocoAtivo = null;
+
+  let carrosselIndex = 0;
+
   document.querySelector('.logo-circle').addEventListener('click', () => {
     tapCount++;
     clearTimeout(tapTimer);
 
-    if (tapCount >= 0) {
+    if (tapCount >= 1) {
       tapCount = 0;
       toggleGrafoDebug();
       return;
@@ -133,14 +137,27 @@ function iniciarMapa() {
       const d = blockData[el.dataset.id];
       if (!d) return;
 
+      document.querySelectorAll('.building.is-selected').forEach(building => {
+        building.classList.remove('is-selected');
+      });
+      el.classList.add('is-selected');
+      blocoAtivo = el.dataset.id;
+
       document.getElementById('panelTag').textContent = d.tag;
       document.getElementById('panelName').textContent = d.name;
       document.getElementById('panelDesc').textContent = d.desc;
+      abrirCarrossel(d.imagens); 
       panel.classList.add('visible');
       dim.classList.add('show');
       e.stopPropagation();
     });
+  });
 
+  document.querySelector('.panel-btn').addEventListener('click', () => {
+    if (blocoAtivo) {
+      desenharRota(blocoAtivo);
+      closePanel();
+    }
   });
 
   document.getElementById('panelClose').onclick = closePanel;
@@ -149,6 +166,9 @@ function iniciarMapa() {
   function closePanel() {
     panel.classList.remove('visible');
     dim.classList.remove('show');
+    document.querySelectorAll('.building.is-selected').forEach(building => {
+      building.classList.remove('is-selected');
+    });
   }
 
   document.getElementById('searchInput').addEventListener('input', function() {
@@ -170,14 +190,12 @@ function iniciarMapa() {
   });
 
   function toggleGrafoDebug() {
-    // Se já existe, remove
     const existing = document.getElementById('debug-graph');
     if (existing) { existing.remove(); return; }
 
     const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     g.id = 'debug-graph';
 
-    // Desenha arestas
     GRAPH.edges.forEach(([a, b]) => {
       const na = GRAPH.nodes[a], nb = GRAPH.nodes[b];
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -214,5 +232,108 @@ function iniciarMapa() {
     });
 
     svg.appendChild(g);
+  }
+
+  function desenharRota(blockId) {
+    const anterior = document.getElementById('rota-ativa');
+    if (anterior) anterior.remove();
+
+    const d = blockData[blockId];
+    if (!d) return;
+
+    const resultados = d.nodes
+      .map(no => dijkstra("ponto_inicial", no))
+      .filter(r => r !== null);
+
+    if (resultados.length === 0) return;
+
+    const melhor = resultados.sort((a, b) => a.distancia - b.distancia)[0];
+
+    const pontos = melhor.caminho
+      .map(id => GRAPH.nodes[id])
+      .map(no => `${no.x},${no.y}`)
+      .join(' ');
+
+    // Cria o elemento SVG
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.id = 'rota-ativa';
+
+    const linha = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    linha.setAttribute('points', pontos);
+    linha.setAttribute('fill', 'none');
+    linha.setAttribute('stroke', '#FF6B00');
+    linha.setAttribute('stroke-width', '6');
+    linha.setAttribute('stroke-linecap', 'round');
+    linha.setAttribute('stroke-linejoin', 'round');
+    linha.setAttribute('opacity', '0.85');
+
+    g.appendChild(linha);
+    svg.appendChild(g);
+  }
+
+  function abrirCarrossel(imagens) {
+    const carrossel = document.getElementById('carrossel');
+    const track = document.getElementById('carrosselTrack');
+    const dots = document.getElementById('carrosselDots');
+
+    // Limpa
+    track.innerHTML = '';
+    dots.innerHTML = '';
+    carrosselIndex = 0;
+
+    if (!imagens || imagens.length === 0) {
+      carrossel.classList.remove('visivel');
+      return;
+    }
+
+    // Cria imagens
+    imagens.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.classList.add('carrossel-slide');
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Foto ${i + 1}`;
+
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      // Dot
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('ativo');
+      dot.addEventListener('click', () => irParaSlide(i));
+      dots.appendChild(dot);
+    });
+
+    carrossel.classList.add('visivel');
+
+    // Swipe touch no carrossel
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        diff > 0 ? proximoSlide(imagens.length) : slideAnterior(imagens.length);
+      }
+    }, { passive: true });
+  }
+
+  function irParaSlide(index) {
+    carrosselIndex = index;
+    document.getElementById('carrosselTrack').style.transform = 
+      `translateX(-${index * 100}%)`;
+    document.querySelectorAll('#carrosselDots span').forEach((d, i) => {
+      d.classList.toggle('ativo', i === index);
+    });
+  }
+
+  function proximoSlide(total) {
+    irParaSlide((carrosselIndex + 1) % total);
+  }
+
+  function slideAnterior(total) {
+    irParaSlide((carrosselIndex - 1 + total) % total);
   }
 }
