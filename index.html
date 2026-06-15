@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#003B71">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Localiza CCT - UDESC</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-header">
+    <div class="drawer-logo">
+      <div class="logo-circle">CCT</div>
+      <div>
+        <strong>Localiza CCT</strong>
+        <p>UDESC – Joinville</p>
+      </div>
+    </div>
+    <button class="drawer-close" id="drawerClose">✕</button>
+  </div>
+
+  <!-- Abas -->
+  <div class="drawer-tabs">
+    <button class="drawer-tab active" data-tab="blocos">Blocos</button>
+    <button class="drawer-tab" data-tab="sobre">Sobre</button>
+  </div>
+
+  <!-- Aba Blocos -->
+  <div class="drawer-content" id="tab-blocos">
+    <div class="drawer-section-title">Ensino & Pesquisa</div>
+    <div class="drawer-list" id="drawerListEnsino"></div>
+
+    <div class="drawer-section-title">Engenharia</div>
+    <div class="drawer-list" id="drawerListEngenharia"></div>
+
+    <div class="drawer-section-title">Serviços & Convivência</div>
+    <div class="drawer-list" id="drawerListServicos"></div>
+  </div>
+
+  <!-- Aba Sobre -->
+  <div class="drawer-content hidden" id="tab-sobre">
+    <div class="sobre-bloco">
+      <div class="sobre-titulo">LocalizaCCT</div>
+      <div class="sobre-subtitulo">Versão 1.0 · 2026</div>
+      <p class="sobre-desc">Aplicativo de navegação e localização interna do campus CCT da UDESC, desenvolvido como projeto final da disciplina de Informática na Educação.</p>
+    </div>
+
+    <div class="drawer-section-title">Equipe</div>
+    <div class="equipe-lista">
+      <div class="equipe-item">
+        <div class="equipe-avatar">AB</div>
+        <div>
+          <strong>Andressa B. D. Almeida</strong>
+          <p>Ciência da Computação</p>
+        </div>
+      </div>
+      <div class="equipe-item">
+        <div class="equipe-avatar">MS</div>
+        <div>
+          <strong>Mariana dos Santos</strong>
+          <p>Ciência da Computação</p>
+        </div>
+      </div>
+      <div class="equipe-item">
+        <div class="equipe-avatar">MF</div>
+        <div>
+          <strong>Mísia H. M. Farias</strong>
+          <p>Ciência da Computação</p>
+        </div>
+      </div>
+      <div class="equipe-item">
+        <div class="equipe-avatar">NA</div>
+        <div>
+          <strong>Nicolle Beatrice Asquino</strong>
+          <p>Ciência da Computação</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-section-title">Instituição</div>
+    <div class="sobre-bloco">
+      <p class="sobre-desc">Universidade do Estado de Santa Catarina – UDESC<br>Departamento de Ciência da Computação<br>Campus CCT – Joinville, SC</p>
+    </div>
+  </div>
+</aside>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-circle">CCT</div>
+      <div class="header-title">
+        <h1>Localiza CCT</h1>
+        <p>UDESC - Joinville</p>
+      </div>
+    </div>
+    <button class="header-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+  </header>
+
+  <section class="search-bar">
+    <div class="search-input-wrap">
+      <span aria-hidden="true">Busca</span>
+      <input type="text" placeholder="Buscar bloco, sala ou servico..." id="searchInput" autocomplete="off">
+    </div>
+  </section>
+
+  <main class="map-wrap" id="mapWrap">
+    <div class="zoom-controls">
+      <button class="zoom-btn" id="zoomIn" aria-label="Aproximar">+</button>
+      <button class="zoom-btn" id="zoomOut" aria-label="Afastar">-</button>
+    </div>
+    <div class="rota">
+      <button class="btn-fechar-rota" id="btnFecharRota">✕ Sair da rota</button>
+    </div>
+    <div class="overlay-dim" id="overlayDim"></div>
+
+    <section class="info-panel" id="infoPanel">
+      <div class="panel-handle"></div>
+      <button class="panel-close" id="panelClose" aria-label="Fechar painel">x</button>
+      <div class="carrossel" id="carrossel">
+        <div class="carrossel-track" id="carrosselTrack"></div>
+        <div class="carrossel-dots" id="carrosselDots"></div>
+      </div>
+      <div class="panel-tag" id="panelTag">Bloco</div>
+      <div class="panel-name" id="panelName">-</div>
+      <div class="panel-desc" id="panelDesc">-</div>
+      <button class="panel-btn">Traçar rota até aqui</button>
+    </section>
+  </main>
+
+  <!--
+  <div class="image-viewer" id="imageViewer" aria-hidden="true">
+    <button class="image-viewer-close" id="imageViewerClose" aria-label="Fechar imagem">x</button>
+    <button class="image-viewer-nav image-viewer-prev" id="imageViewerPrev" aria-label="Imagem anterior">&lt;</button>
+    <img id="imageViewerImg" src="" alt="Foto ampliada">
+    <button class="image-viewer-nav image-viewer-next" id="imageViewerNext" aria-label="Proxima imagem">&gt;</button>
+    <div class="image-viewer-dots" id="imageViewerDots"></div>
+  </div>
+  -->
+
+  <script src="js/graph.js"></script>
+  <script src="js/dijkstra.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

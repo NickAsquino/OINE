@@ -1,0 +1,21 @@
+{
+  "appId": "com.example.oine",
+  "appName": "OINE",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "StatusBar": {
+      "style": "dark",
+      "backgroundColor": "#003B71",
+      "overlaysWebView": true
+    },
+    "SafeArea": {
+      "offset": 0
+    }
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
