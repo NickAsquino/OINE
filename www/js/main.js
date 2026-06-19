@@ -89,7 +89,7 @@ function iniciarMapa() {
           }
         },
         nodes: ["blocoF1_in", "blocoF2_in", "blocoF3_in"], 
-        imagens: [] 
+        imagens: ["assets/blocos/blocoF/BlocoF-img1.png"] 
       },
       8: {
         tag: "Engenharia",
@@ -130,7 +130,7 @@ function iniciarMapa() {
         tag: "Serviços Gerais",
         name: "Bloco de Apoio",
         desc: "Prefeitura do Campus, almoxarifado, copa e setor de manutenção.",
-        nodes: ["bloco_de_apoio_in"],
+        nodes: ["copa_in"],
         imagens: []
       },
       14: {
@@ -141,14 +141,14 @@ function iniciarMapa() {
         imagens: []
       },
       15: {
-        tag: "Restaurante",
+        tag: "Centro de Convivência",
         name: "Restaurante Universitário",
-        desc: "Restaurante Universitário (RU), Centros Acadêmicos (C.A.s), xerox e área de convivência.",
+        desc: "Restaurante Universitário (RU), Centros Acadêmicos (C.A.s) e área de convivência.",
         nodes: ["convivencia_in"],
-        imagens: []
+        imagens: ["assets/blocos/RU/RU-img1.png", "assets/blocos/RU/RU-img2.png"]
       },
       16: {
-        tag: "Engenharia",
+        tag: "Engenharia Cívil",
         name: "Bloco L",
         desc: "Departamento de Engenharia de Produção e Sistemas, e Secretaria da Engenharia Civil.",
         nodes: ["blocoL_in"],
@@ -187,7 +187,7 @@ function iniciarMapa() {
   document.querySelector('.logo-circle').addEventListener('click', () => {
     tapCount++;
     clearTimeout(tapTimer);
-    if (tapCount >= 5) {
+    if (tapCount >= 1) {
       tapCount = 0;
       toggleGrafoDebug();
       return;

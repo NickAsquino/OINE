@@ -2,7 +2,7 @@
 const GRAPH = {
   nodes: {
     // Entradas de blocos
-    "guarita":    { x: 775, y: 990, label: "Guarita" },
+    "guarita":    { x: 875, y: 1230, label: "Guarita" },
     "blocoA_in":  { x: 905, y: 988, label: "Entrada Bloco A" },
     "blocoB_in":  { x: 880, y: 842, label: "Entrada Bloco B" },
     "blocoC_in": { x: 920, y: 700, label: "Entrada Bloco C" },
@@ -53,13 +53,15 @@ const GRAPH = {
     "cruz_27":    { x: 950, y: 420 },
     "cruz_28":    { x: 1065, y: 490 },
     "cruz_29":    { x: 965, y: 940 },
-    "cruz_30":     { x: 1075, y: 765 },
-    "cruz_31":     { x: 1175, y: 840 },
-    "cruz_32":     { x: 1180, y: 560 },
+    "cruz_30":    { x: 1075, y: 765 },
+    "cruz_31":    { x: 1175, y: 840 },
+    "cruz_32":    { x: 1180, y: 560 },
+    "cruz_33":    { x: 900, y: 1200 },
   },
   edges: [
     // [ nóA, nóB, distância ]
-    ["guarita",   "ponto_inicial",   30],
+    ["cruz_33",   "ponto_inicial",   30],
+    ["cruz_33",   "guarita",   10],
     ["ponto_inicial",    "blocoA_in", 45],
     ["ponto_inicial",    "cruz_2",   60],
     ["cruz_3",    "blocoB_in", 30],
