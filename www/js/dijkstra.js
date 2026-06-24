@@ -1,16 +1,16 @@
 // js/dijkstra.js
-function dijkstra(origem, destino) {
+function dijkstra(origem, destino, acessivel = false) {
   const nos = GRAPH.nodes;
   const arestas = GRAPH.edges;
 
   const adj = {};
   Object.keys(nos).forEach(id => adj[id] = []);
-  arestas.forEach(([a, b, dist]) => {
+  arestas.forEach(([a, b, dist, tipo]) => {
+    if(acessivel && tipo === "escada") return;
     adj[a].push({ no: b, dist });
     adj[b].push({ no: a, dist });
   });
 
-  // Distâncias e predecessores
   const dist  = {};
   const prev  = {};
   const visited = new Set();
@@ -19,7 +19,6 @@ function dijkstra(origem, destino) {
   dist[origem] = 0;
 
   while (true) {
-    // Pega o nó não visitado com menor distância
     let u = null;
     Object.keys(dist).forEach(id => {
       if (!visited.has(id) && (u === null || dist[id] < dist[u])) u = id;
@@ -39,7 +38,6 @@ function dijkstra(origem, destino) {
     });
   }
 
-  // Reconstrói o caminho
   if (dist[destino] === Infinity) return null; // sem caminho
 
   const caminho = [];

@@ -213,6 +213,14 @@ body {
 .nav-item.active span.label { color: var(--udesc-blue); font-weight: 600; }
 .nav-item.active span.icon { filter: none; }
 
+.nav-item.acessivel-ativo {
+  background: var(--bg);
+}
+.nav-item.acessivel-ativo span.icon,
+.nav-item.acessivel-ativo span.label {
+  color: var(--udesc-accent);
+  font-weight: 700;
+}
 .overlay-dim {
   position: absolute; inset: 0;
   background: rgba(0,0,0,0.3);

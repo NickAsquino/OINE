@@ -184,6 +184,13 @@ function iniciarMapa() {
 
   let carrosselIndex = 0;
 
+  let modoAcessivel = false;
+
+  document.getElementById('btnAcessibilidade').addEventListener('click', function() {
+    modoAcessivel = !modoAcessivel;
+    this.classList.toggle('acessivel-ativo', modoAcessivel);
+  });
+
   document.querySelector('.logo-circle').addEventListener('click', () => {
     tapCount++;
     clearTimeout(tapTimer);
@@ -475,7 +482,7 @@ function iniciarMapa() {
     if (!d) return;
 
     const resultados = d.nodes
-      .map(no => dijkstra("ponto_inicial", no))
+      .map(no => dijkstra("ponto_inicial", no, modoAcessivel))
       .filter(r => r !== null);
 
     if (resultados.length === 0) return;
