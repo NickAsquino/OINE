@@ -33,34 +33,40 @@ function iniciarMapa() {
         name: "Guarita",
         desc: "Controle de acesso principal ao campus, vigilância e informações iniciais.",
         nodes: ["guarita"],
-        imagens: []
+        imagens: ["assets/blocos/guarita/Guarita-img1.jpg"]
       },
       2: { 
         tag: "Administração",   name: "Bloco A",
         desc: "Recepção principal do CCT, Direção Geral, Secretaria de Ensino de Graduação e NAE.",
         nodes: ["blocoA_in"], 
-        imagens: []
+        imagens: ["assets/blocos/blocoA/BlocoA-img1.jpg", "assets/blocos/blocoA/BlocoA-img2.jpg"]
       },
       3: {
         tag: "Ensino Prático",
         name: "Bloco B",
         desc: "Laboratórios práticos focados em Física e Química, além de salas de aula.",
         nodes: ["blocoB_in"], 
-        imagens: [] 
+        imagens: ["assets/blocos/blocoB/BlocoB-img1.jpg", "assets/blocos/blocoB/BlocoB-img2.jpg"] 
       },
       4: {
         tag: "Pesquisa",
         name: "Bloco D",
         desc: "Laboratórios específicos, núcleos de pesquisa avançada e espaços técnicos.",
         nodes: ["blocoD_in"], 
-        imagens: []
+        imagens: ["assets/blocos/blocoD/BlocoD-img1.jpg", "assets/blocos/blocoD/BlocoD-img2.jpg", "assets/blocos/blocoD/BlocoD-img3.jpg"]
       },
       5: {
         tag: "Engenharia",
         name: "Bloco E",
         desc: "Departamento de Engenharia Elétrica, auditório do bloco e laboratórios da área.", 
+        salas: {
+          prefixo: "E",
+          andares: {
+            "Térreo":   { de: 101, ate: 112, obs: "Laman, Auditório E, Auditorio E" },
+          }
+        },
         nodes: ["blocoE1_in", "blocoE2_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoE/BlocoE-img1.jpg", "assets/blocos/blocoE/BlocoE-img2.jpg", "assets/blocos/blocoE/BlocoE-img3.jpg"]
       },
       6: {
         tag: "Ensino Teórico",
@@ -74,7 +80,7 @@ function iniciarMapa() {
           }
         },
         nodes: ["blocoK1_in", "blocoK2_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoK/BlocoK-img1.jpg", "assets/blocos/blocoK/BlocoK-img2.jpg", "assets/blocos/blocoK/BlocoK-img3.jpg"]
       },
       7: {
         tag: "Computação",
@@ -89,70 +95,70 @@ function iniciarMapa() {
           }
         },
         nodes: ["blocoF1_in", "blocoF2_in", "blocoF3_in"], 
-        imagens: ["assets/blocos/blocoF/BlocoF-img1.png"] 
+        imagens: ["assets/blocos/blocoF/BlocoF-img1.png", "assets/blocos/blocoF/BlocoF-img2.jpg"] 
       },
       8: {
         tag: "Engenharia",
         name: "Bloco G",
         desc: "Departamento de Engenharia Mecânica, abrigando oficinas e maquinário pesado.", 
         nodes: ["blocoG_in"], 
-        imagens: [] 
+        imagens: ["assets/blocos/blocoG/BlocoG-img1.jpg", "assets/blocos/blocoG/BlocoG-img2.jpg", "assets/blocos/blocoG/BlocoG-img3.jpg"] 
       },
       9: {
         tag: "Licenciaturas",
         name: "Bloco C",
         desc: "Departamentos e coordenações dos cursos de Licenciatura em Física, Matemática e Química.",
         nodes: ["blocoC_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoC/BlocoC-img1.jpg"]
       },
       10: {
         tag: "Administração",
         name: "Antiga Biblioteca",
         desc: "Prédio da antiga Biblioteca Universitária",
         nodes: ["antiga_biblioteca_in"],
-        imagens: []
+        imagens: ["assets/blocos/antigaBiblioteca/AntigaBiblioteca-img1.jpg", "assets/blocos/antigaBiblioteca/AntigaBiblioteca-img2.jpg", "assets/blocos/antigaBiblioteca/AntigaBiblioteca-img3.jpg"]
       },
       11: {
         tag: "Estudo e Cultura",
         name: "Bloco I",
         desc: "Nova Biblioteca Universitária, salas de estudo individuais/em grupo e um auditório.",
         nodes: ["blocoI_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoI/BlocoI-img1.jpg", "assets/blocos/blocoI/BlocoI-img2.jpg", "assets/blocos/blocoI/BlocoI-img3.jpg"]
       },
       12: {
         tag: "Engenharia",
         name: "Bloco H",
         desc: "Laboratórios pesados e salas de aula dedicadas ao curso de Engenharia Civil.",
         nodes: ["blocoH_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoH/BlocoH-img1.jpg", "assets/blocos/blocoH/BlocoH-img2.jpg", "assets/blocos/blocoH/BlocoH-img3.jpg"]
       },
       13: {
         tag: "Serviços Gerais",
         name: "Bloco de Apoio",
         desc: "Prefeitura do Campus, almoxarifado, copa e setor de manutenção.",
         nodes: ["copa_in"],
-        imagens: []
+        imagens: ["assets/blocos/apoio/Apoio-img1.jpg"]
       },
       14: {
         tag: "Esporte e Saúde",
         name: "Ginásio",
         desc: "Ginásio de esportes, quadras poliesportivas, academia e Espaço da Saúde.",
         nodes: ["ginasio1_in", "ginasio2_in"],
-        imagens: []
+        imagens: ["assets/blocos/ginasio/Ginasio-img1.jpg", "assets/blocos/ginasio/Ginasio-img2.jpg", "assets/blocos/ginasio/Ginasio-img3.jpg", "assets/blocos/ginasio/Ginasio-img4.jpg"]
       },
       15: {
         tag: "Centro de Convivência",
         name: "Restaurante Universitário",
         desc: "Restaurante Universitário (RU), Centros Acadêmicos (C.A.s) e área de convivência.",
         nodes: ["convivencia_in"],
-        imagens: ["assets/blocos/RU/RU-img1.png", "assets/blocos/RU/RU-img2.png"]
+        imagens: ["assets/blocos/RU/RU-img1.png", "assets/blocos/RU/RU-img2.png", "assets/blocos/RU/RU-img3.png"]
       },
       16: {
         tag: "Engenharia Cívil",
         name: "Bloco L",
         desc: "Departamento de Engenharia de Produção e Sistemas, e Secretaria da Engenharia Civil.",
         nodes: ["blocoL_in"],
-        imagens: []
+        imagens: ["assets/blocos/blocoL/BlocoL-img2.jpg"]
       },
       17: {
         tag: "Inovação",
@@ -183,6 +189,8 @@ function iniciarMapa() {
   let blocoAtivo = null;
 
   let carrosselIndex = 0;
+  let carrosselTotal = 0;
+  let carrosselTouchStartX = 0;
 
   let modoAcessivel = false;
 
@@ -194,7 +202,7 @@ function iniciarMapa() {
   document.querySelector('.logo-circle').addEventListener('click', () => {
     tapCount++;
     clearTimeout(tapTimer);
-    if (tapCount >= 1) {
+    if (tapCount >= 5) {
       tapCount = 0;
       toggleGrafoDebug();
       return;
@@ -359,9 +367,9 @@ function iniciarMapa() {
       document.getElementById('panelTag').textContent = d.tag;
       document.getElementById('panelName').textContent = d.name;
       document.getElementById('panelDesc').textContent = d.desc;
-      abrirCarrossel(d.imagens); 
       panel.classList.add('visible');
       dim.classList.add('show');
+      requestAnimationFrame(() => abrirCarrossel(d.imagens)); 
       
       // Remove botão de rota para Antiga Biblioteca (bloco 10)
       const panelBtn = document.querySelector('.panel-btn');
@@ -431,7 +439,13 @@ function iniciarMapa() {
 
   function toggleGrafoDebug() {
     const existing = document.getElementById('debug-graph');
-    if (existing) { existing.remove(); return; }
+    if (existing) { 
+      existing.remove(); 
+      //svg.querySelectorAll(':scope > *').forEach(el => el.style.display = 'none');
+      return; 
+    }
+
+    //svg.querySelectorAll(':scope > *').forEach(el => el.style.display = 'none');
 
     const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     g.id = 'debug-graph';
@@ -554,6 +568,8 @@ function limparRota() {
     track.innerHTML = '';
     dots.innerHTML = '';
     carrosselIndex = 0;
+    carrosselTotal = imagens ? imagens.length : 0;
+    track.style.transform = 'translateX(0)';
 
     if (!imagens || imagens.length === 0) {
       carrossel.classList.remove('visivel');
@@ -566,8 +582,12 @@ function limparRota() {
       slide.classList.add('carrossel-slide');
 
       const img = document.createElement('img');
-      img.src = resolveAssetPath(src);
+      img.dataset.src = resolveAssetPath(src);
       img.alt = `Foto ${i + 1}`;
+      img.decoding = 'async';
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      img.fetchPriority = i === 0 ? 'high' : 'low';
+      if (i === 0) img.src = img.dataset.src;
 
       slide.appendChild(img);
       track.appendChild(slide);
@@ -580,22 +600,33 @@ function limparRota() {
     });
 
     carrossel.classList.add('visivel');
-
-    // Swipe touch no carrossel
-    let touchStartX = 0;
-    track.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        diff > 0 ? proximoSlide(imagens.length) : slideAnterior(imagens.length);
-      }
-    }, { passive: true });
   }
+
+  function carregarImagemSlide(index) {
+    const img = document.querySelectorAll('#carrosselTrack img')[index];
+    if (img && !img.src) {
+      img.src = img.dataset.src;
+    }
+  }
+
+  // Swipe touch no carrossel. Registrado uma vez para nao acumular eventos
+  // toda vez que um bloco abre o painel.
+  const carrosselTrack = document.getElementById('carrosselTrack');
+  carrosselTrack.addEventListener('touchstart', e => {
+    carrosselTouchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  carrosselTrack.addEventListener('touchend', e => {
+    if (carrosselTotal <= 1) return;
+
+    const diff = carrosselTouchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? proximoSlide(carrosselTotal) : slideAnterior(carrosselTotal);
+    }
+  }, { passive: true });
 
   function irParaSlide(index) {
     carrosselIndex = index;
+    carregarImagemSlide(index);
     document.getElementById('carrosselTrack').style.transform = 
       `translateX(-${index * 100}%)`;
     document.querySelectorAll('#carrosselDots span').forEach((d, i) => {
